@@ -1,35 +1,19 @@
-#!/usr/bin/env python3
-#
-#  [Program]
-#
-#  Weather City Api Call
-#
-#  [Author]
-#
-#  Drew, https://github.com/Ahendrix9624/
-#
-#  [License]
-#
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#
-#  See 'LICENSE' for more information.
+"""
+USAGE - This code retrieves weather data for a user-specified city using the OpenWeatherMap API. 
+        The API key is obtained from an environmental variable named WEATHER_API_KEY. The user is 
+        prompted to enter a city name, and the code constructs a URL using the API key and 
+        city name. A GET request is sent to the API, and the response is parsed as JSON. 
+        The script then extracts the weather description and temperature data from the 
+        JSON response, and converts the temperature from Kelvin to Celsius and Fahrenheit. 
+        The results are printed to the console. If an error occurs, the script prints an error message.
 
-# import requests HTTP Library module
+AUTHOR - https://github.com/Ahendrix9624/
+"""
+
 import requests
+import os
 
-API_KEY = "9afd1eb66741444d53f93555e9008535"
+API_KEY = os.environ.get("WEATHER_API_KEY")
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q="
 
 city = input("Enter a city name: ")
